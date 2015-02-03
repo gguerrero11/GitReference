@@ -50,8 +50,9 @@ static NSString * const Reference = @"reference";
         
         [scrollView addSubview:textCommand];
         
+        CGFloat heightForReference = [self heightOfReferenceString:reference];
         
-        UILabel *textReference =  [[UILabel alloc]initWithFrame:CGRectMake(topMargin*2, top + spaceBetweenCommandandReference, widthMinusMargin - margin * 4, heightForLabel*2)];
+        UILabel *textReference =  [[UILabel alloc]initWithFrame:CGRectMake(topMargin*2, top + spaceBetweenCommandandReference, widthMinusMargin - margin * 4, heightForReference)];
         textReference.numberOfLines = 0;
         textReference.font = [UIFont boldSystemFontOfSize:17];
         textReference.text = reference;
@@ -99,9 +100,9 @@ static NSString * const Reference = @"reference";
 
 - (CGFloat)heightOfReferenceString:(NSString *)reference {
     
-    CGRect bounding = [reference boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 2 * margin, 0)
+    CGRect bounding = [reference boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 4 * margin, 0)
                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
+                                           attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
                                               context:nil];
     
     return bounding.size.height;
