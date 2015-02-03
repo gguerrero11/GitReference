@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (NSArray *)gitCommands;
+- (CGFloat)heightOfReferenceString:(NSString *)reference;
+
 @end
